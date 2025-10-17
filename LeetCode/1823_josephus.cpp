@@ -72,7 +72,7 @@ public:
     }
 };
 // optimized approach
-cclass Solution {
+class Solution {
 public:
     int winner(int n, int k){
         if (n==1)
