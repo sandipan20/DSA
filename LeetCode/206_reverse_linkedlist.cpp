@@ -40,22 +40,47 @@ class ListNode{
 
 };
 
-class Solution {
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {// proper way to reverse the linked list along with node
 public:
     ListNode* reverseList(ListNode* head) {
-        vector<int> list;
-        ListNode* temp=head;
-        while(temp != nullptr){
-            list.push_back(temp->val);
-            temp=temp->next;
+        ListNode *prev=nullptr,*future=nullptr;
+        while(head){
+            future=head->next;
+            head->next=prev;
+            prev=head;
+            head=future;
         }
-        temp=head;
-        int i=list.size()-1;
-        while(temp!=nullptr){
-            temp->val=list[i];
-            i--;
-            temp=temp->next;
-        }
+        head=prev;
         return head;
     }
 };
+
+// class Solution {
+// public:
+//     ListNode* reverseList(ListNode* head) {
+//         vector<int> list;
+//         ListNode* temp=head;
+//         while(temp != nullptr){
+//             list.push_back(temp->val);
+//             temp=temp->next;
+//         }
+//         temp=head;
+//         int i=list.size()-1;
+//         while(temp!=nullptr){
+//             temp->val=list[i];
+//             i--;
+//             temp=temp->next;
+//         }
+//         return head;
+//     }
+// };
