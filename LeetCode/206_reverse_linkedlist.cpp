@@ -60,10 +60,27 @@ public:
             prev=head;
             head=future;
         }
-        head=prev;
-        return head;
+        return prev;
     }
 };
+
+// using recursion
+
+// ListNode* reversenode(ListNode* head,ListNode* prev){
+//     if(head==nullptr) return prev;
+//     ListNode* fut=head->next;
+//     head->next=prev;
+//     return reversenode(fut,head);
+
+// }
+
+// class Solution {
+// public:
+//     ListNode* reverseList(ListNode* head) {
+//         ListNode *prev=nullptr;
+//         return reversenode(head,prev);
+//     }
+// };
 
 // class Solution {
 // public:
