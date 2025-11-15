@@ -1,5 +1,7 @@
 #include<iostream>
 using namespace std;
+
+
 // Definition for singly-linked list.
 struct ListNode {
     int val;
@@ -16,14 +18,14 @@ public:
 
         ListNode* slow = head;
         ListNode* fast = head;
-        while (fast->next && fast->next->next) {
+        while (fast->next && fast->next->next) {//find mid
             slow = slow->next;
             fast = fast->next->next;
         }
 
         ListNode* prev = nullptr;
         ListNode* curr = slow->next;
-        while (curr) {
+        while (curr) {// rev half linked list starting just after exact mid for odd or mid-1 for even
             ListNode* nextNode = curr->next;
             curr->next = prev;
             prev = curr;
@@ -32,7 +34,7 @@ public:
 
         ListNode* first = head;
         ListNode* second = prev;
-        while (second) { 
+        while (second) { // comparing
             if (first->val != second->val)
                 return false;
             first = first->next;
