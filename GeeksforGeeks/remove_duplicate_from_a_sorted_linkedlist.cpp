@@ -35,7 +35,6 @@ class Solution {
 Note: Try not to use extra space. The nodes are arranged in a sorted way.
 
 Examples:
-
 Input:
 LinkedList: 2->2->4->5
 Output: 2 -> 4 -> 5
