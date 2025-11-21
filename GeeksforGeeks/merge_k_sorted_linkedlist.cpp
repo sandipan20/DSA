@@ -14,7 +14,7 @@ class Node {
 class Solution {
   public:
     Node* merge(Node *head,Node *end){
-        Node* ptr=new Node(0);
+        Node* ptr=head;
         Node* temp=ptr;
         while(head&&end){
             if(head->data<=end->data){
