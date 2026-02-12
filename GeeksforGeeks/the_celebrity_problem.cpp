@@ -29,8 +29,6 @@ class Solution {
 
         for(int i = n - 1; i >= 0; i--)
             st.push(i);
-
-        // elimination
         while(st.size() > 1){
             int a = st.top(); st.pop();
             int b = st.top(); st.pop();
@@ -43,16 +41,14 @@ class Solution {
 
         if(st.empty()) return -1;
 
-        int candidate = st.top();
-
-        // verification (IGNORE diagonal)
+        int member = st.top();
         for(int i = 0; i < n; i++){
-            if(i != candidate){
-                if(mat[candidate][i] == 1) return -1;
-                if(mat[i][candidate] == 0) return -1;
+            if(i != member){
+                if(mat[member][i] == 1) return -1;
+                if(mat[i][member] == 0) return -1;
             }
         }
 
-        return candidate;
+        return member;
     }
 };
