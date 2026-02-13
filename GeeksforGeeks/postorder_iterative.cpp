@@ -54,3 +54,39 @@ Expected auxiliary space: O(n)
 Constraints:
 1 <= Number of nodes <= 105
 1 <= Data of a node <= 105*/
+// User function Template for C++
+
+/* Tree Node
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+};*/
+class Solution {
+  public:
+    vector<int> postOrder(Node* root) {
+        // code here
+        vector<int> ans;
+        while(root){
+            if(!root->right){//right na exist kare
+                ans.push_back(root->data);
+                root=root->left;
+            } else{
+                Node*curr=root->right;
+                while(curr->left&&curr->left!=root){
+                    curr=curr->left;
+                }
+                if(!curr->left){//jab right traverse na ho to
+                    ans.push_back(root->data); 
+                    curr->left=root;
+                    root=root->right;
+                } else{
+                    curr->left=NULL;
+                    root=root->left;
+                }
+            }
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};

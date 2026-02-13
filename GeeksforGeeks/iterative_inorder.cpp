@@ -66,3 +66,38 @@ Constraints:
 1 <= Number of nodes <= 105
 1 <= Data of a node <= 105
 */
+// User function Template for C++
+
+/* Tree Node
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+};*/
+class Solution {//sc O(1)
+  public:
+    vector<int> inOrder(Node* root) {
+        // code here
+        vector<int> ans;
+        while(root){
+            if(!root->left){//left na exist kare
+                ans.push_back(root->data);
+                root=root->right;
+            } else{
+                Node*curr=root->left;
+                while(curr->right&&curr->right!=root){
+                    curr=curr->right;
+                }
+                if(!curr->right){//jab left traverse na ho to
+                    curr->right=root;
+                    root=root->left;
+                } else{
+                    curr->right=NULL;
+                    ans.push_back(root->data);
+                    root=root->right;
+                }
+            }
+        }
+        return ans;
+    }
+};

@@ -54,3 +54,43 @@ Constraints:
 1 ≤ Number of nodes ≤ 105
 0 ≤ node->data ≤ 105
 */
+/*
+class Node {
+  public:
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = NULL;
+    }
+};
+*/
+class Solution {
+  public:
+    vector<int> preOrder(Node* root) {
+        // code here
+        vector<int> ans;
+        while(root){
+            if(!root->left){//left na exist kare
+                ans.push_back(root->data);
+                root=root->right;
+            } else{
+                Node*curr=root->left;
+                while(curr->right&&curr->right!=root){
+                    curr=curr->right;
+                }
+                if(!curr->right){//jab left traverse na ho to
+                    ans.push_back(root->data); 
+                    curr->right=root;
+                    root=root->left;
+                } else{
+                    curr->right=NULL;
+                    root=root->right;
+                }
+            }
+        }
+        return ans;
+    }
+};
