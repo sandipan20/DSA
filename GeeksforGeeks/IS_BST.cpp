@@ -83,10 +83,10 @@ class Solution {
     bool check(Node* root, int& prev){
         if(!root) return true;
         if(!check(root->left,prev)){
-            return 0;
+            return false;
         }
         if(root->data<prev){
-            return 0;
+            return false;
         }
         prev=root->data;
         return check(root->right,prev);
