@@ -4,12 +4,12 @@ public:
         if (n == 0)
             return 1;
 
-        double half = power(x, n / 2);
+        double mid = power(x, n / 2);
 
         if (n % 2 == 0)
-            return half * half;
+            return mid * mid;
 
-        return half * half * x;
+        return mid*mid* x;
     }
 
     double myPow(double x, int n) {
