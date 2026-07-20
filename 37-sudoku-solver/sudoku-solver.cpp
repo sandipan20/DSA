@@ -9,6 +9,15 @@ public:
             int r=3*(i/3)+x/3;
             int c=3*(j/3)+x%3;
             if(board[r][c]==k) return false;
+
+        //     int startRow = (row / 3) * 3;
+        //     int startCol = (col / 3) * 3;
+
+        //     for (int i = startRow; i < startRow + 3; i++) {
+        //         for (int j = startCol; j < startCol + 3; j++) {
+        //             if (board[i][j] == ch)
+        //                 return false;
+        //     }
         }
         return true;
     }
