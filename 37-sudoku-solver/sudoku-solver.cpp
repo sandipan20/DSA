@@ -5,6 +5,7 @@ public:
             if(board[i][x]==k) return false;//for row
             if(board[x][j]==k) return false;//for col
             //for 3*3 matrix net
+            // very important and very confusing part its important to visit all the 9 cell in 3*3 matrix using just x
             int r=3*(i/3)+x/3;
             int c=3*(j/3)+x%3;
             if(board[r][c]==k) return false;
