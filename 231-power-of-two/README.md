@@ -35,3 +35,22 @@
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Could you solve it without loops/recursion?
+
+<p>&nbsp;</p>
+
+| Operation             | Formula                          |
+| --------------------- | -------------------------------- |
+| Odd/Even              | `n & 1`                          |
+| Multiply by 2         | `n << 1`                         |
+| Divide by 2           | `n >> 1`                         |
+| Check ith bit         | `n & (1 << i)`                   |
+| Set ith bit           | `n \|= (1 << i)`                 |
+| Clear ith bit         | `n &= ~(1 << i)`                 |
+| Toggle ith bit        | `n ^= (1 << i)`                  |
+| Remove lowest set bit | `n &= (n - 1)`                   |
+| Lowest set bit        | `n & (-n)`                       |
+| Count set bits        | `while(n){ n &= (n-1); cnt++; }` |
+| Power of Two          | `n > 0 && (n & (n - 1)) == 0`    |
+| Single Number         | XOR all elements                 |
+| Missing Number        | XOR indices and array            |
+| Swap                  | `a ^= b; b ^= a; a ^= b;`        |
