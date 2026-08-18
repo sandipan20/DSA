@@ -19,13 +19,13 @@ public:
         // return dp[0];
 
 
-        int last=0,secondlast=1,curr;
+        int last=0,secondlast=1;
         for(int i=n-1;i>=0;i--){
-            curr=secondlast+last;
+            int curr=secondlast+last;
             last=secondlast;
             secondlast=curr;
         }
-        
-        return curr;
+
+        return secondlast;
     }
 };
