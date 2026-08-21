@@ -18,19 +18,20 @@ class Solution {
     int tabulation(vector<int>& nums,int st,int end){
         // int n=nums.size();
         // vector<int> dp(n,-1);
-        // dp[st]=nums[st];
         // if(st==end)
-        //     return dp[st];
+        //     return nums[st];
+        // dp[st]=nums[st];
         // dp[st+1]=max(nums[st],nums[st+1]);
         // for(int i=st+2;i<=end;i++){
         //     dp[i]=max(nums[i]+dp[i-2],dp[i-1]);
         // }
         // return dp[end];
+        if(st==end)
+            return nums[st];
+        int prev2 = nums[st];
+        int prev1 = max(nums[st],nums[st+1]);
 
-        int prev2 = 0;
-        int prev1 = 0;
-
-        for (int i = st; i <= end; i++) {
+        for (int i = st+2; i <= end; i++) {
             int curr = max(
                 nums[i] + prev2,
                 prev1
