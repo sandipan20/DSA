@@ -19,6 +19,6 @@ class Solution {
     }
 public:
     int subarraysWithKDistinct(vector<int>& nums, int k) {
-        return atmost(nums,k)-atmost(nums,k-1);
+        return atmost(nums,k)-atmost(nums,k-1);//for exactly k 
     }
 };
