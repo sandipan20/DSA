@@ -10,17 +10,44 @@
  * };
  */
 class Solution {
-    void postorder(TreeNode* root,vector<int>& ans){
-        if(root==nullptr)
-            return;
-        postorder(root->left,ans);
-        postorder(root->right,ans);
-        ans.push_back(root->val);
-    }
 public:
     vector<int> postorderTraversal(TreeNode* root) {
         vector<int> ans;
-        postorder(root,ans);
+
+        if (!root)
+            return ans;
+
+        stack<TreeNode*> st;
+        TreeNode* curr = root;
+
+        while (curr != nullptr || !st.empty()) {
+
+            // Go as far left as possible
+            while (curr != nullptr) {
+                st.push(curr);
+                curr = curr->left;
+            }
+
+            TreeNode* temp = st.top();
+
+            // Right subtree exists
+            if (temp->right != nullptr) {
+                curr = temp->right;
+            }
+            else {
+                // No right subtree -> process current node
+                st.pop();
+                ans.push_back(temp->val);
+
+                // Process ancestors whose right subtree is already processed
+                while (!st.empty() && st.top()->right == temp) {
+                    temp = st.top();
+                    st.pop();
+                    ans.push_back(temp->val);
+                }
+            }
+        }
+
         return ans;
     }
 };
