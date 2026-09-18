@@ -12,7 +12,7 @@ public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         
         // Base case
-        if (root == nullptr || root == p || root == q)
+        if (!root || root == p || root == q)
             return root;
 
         // Search in left and right subtree
