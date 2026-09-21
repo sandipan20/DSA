@@ -10,7 +10,7 @@
  * };
  */
 class Solution {
-    int height(TreeNode*root,bool left=false){
+    int height(TreeNode*root,bool left=0){
         int h=0;
         while(root){
             if(left){
