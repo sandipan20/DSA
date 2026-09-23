@@ -10,8 +10,8 @@
  * };
  */
 class Solution {
-    TreeNode* build(vector<int>& preorder, int& idx, int last_node) {
-        if (idx >= preorder.size() || preorder[idx] > last_node) {
+    TreeNode* build(vector<int>& preorder, int& idx, int upper) {
+        if (idx >= preorder.size() || preorder[idx] > upper) {
             return nullptr;
         }
 
@@ -19,7 +19,7 @@ class Solution {
 
         root->left = build(preorder, idx, root->val);
 
-        root->right = build(preorder, idx, last_node);
+        root->right = build(preorder, idx, upper);
 
         return root;
     }
