@@ -29,6 +29,8 @@ public:
                 temp=temp->left;
             }
             root->val=temp->val;
+
+            // now the replaced val is 2 times already we need to delete that val also so we call the fn again and delete the duplicate val again
             root->right=deleteNode(root->right,temp->val);
         }
         return root;
